@@ -8,31 +8,31 @@
 import SwiftUI
 
 struct FloatingButton: View {
-    @ObservedObject var viewModel: HomeViewModel
-    
+    let iconName: String
+    let backgroundColor: Color
+    let action: () -> Void
+    let buttonText: String
+
     var body: some View {
-        HStack {
-            Spacer()
-            Button(action: {
-                showAddCardAlert { newCard in
-                    if let newCard = newCard {
-                        Task {
-                            if await viewModel.getValidation(cardNumber: newCard) {
-                                viewModel.cards.append(newCard)
-                            }
-                        }
+        ZStack {
+            HStack {
+                Spacer()
+                VStack {
+                    Button(action: action) {
+                        Image(systemName: iconName)
+                            .font(.system(size: 28, weight: .bold))
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(backgroundColor)
+                            .clipShape(Circle())
+                            .shadow(color: .green.opacity(0.6), radius: 10, x: 0, y: 4)
                     }
-                }
-            }) {
-                Image(systemName: "plus")
-                    .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.white)
                     .padding()
-                    .background(Color.green)
-                    .clipShape(Circle())
-                    .shadow(color: .green.opacity(0.6), radius: 10, x: 0, y: 4)
+                    
+                    Text(buttonText)
+                        .bold()
+                }
             }
-            .padding()
         }
     }
 }

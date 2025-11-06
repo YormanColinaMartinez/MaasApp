@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct MaasAppApp: App {
+    private var storage = CardStorage()
+    
     var body: some Scene {
         WindowGroup {
             HomeView(viewModel: HomeViewModel(service: CardValidationService()))

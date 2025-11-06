@@ -14,11 +14,16 @@ class TransportMapViewModel: ObservableObject {
         center: CLLocationCoordinate2D(latitude: 4.6097, longitude: -74.0817),
         span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
     )
+    var service: TransportMapServiceInterface
+    
+    init(service: TransportMapServiceInterface = TransportMapService()) {
+        self.service = TransportMapService()
+    }
     
     @MainActor
     func loadNearbyStops(location: CLLocationCoordinate2D) async {
         do {
-            nearbyStops = try await OTPService.shared.getNearbyStopsAsync(location: location)
+            nearbyStops = try await service.getNearbyStopsAsync(location: location, radius: 1000)
             region.center = location
         } catch {
             print("Error cargando paraderos: \(error)")

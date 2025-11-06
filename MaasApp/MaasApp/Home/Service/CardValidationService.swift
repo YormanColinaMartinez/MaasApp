@@ -10,7 +10,7 @@ import Foundation
 class CardValidationService: CardValidationServiceInterface {
     
     func fetchCardValidation(cardNumber: String) async throws -> Card? {
-        let url = URL(string: "https://osgqhdx2wf.execute-api.us-west-2.amazonaws.com/card/valid/\(cardNumber)")!
+        let url = URL(string: "\(Endpoints.cardValidation.rawValue)\(cardNumber)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 

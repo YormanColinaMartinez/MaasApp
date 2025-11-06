@@ -8,14 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0487CDC12EB8FE1C0063F6B3 /* MaasAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDC02EB8FE1C0063F6B3 /* MaasAppApp.swift */; };
-		0487CDC32EB8FE1C0063F6B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDC22EB8FE1C0063F6B3 /* ContentView.swift */; };
 		0487CDC52EB8FE1E0063F6B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0487CDC42EB8FE1E0063F6B3 /* Assets.xcassets */; };
 		0487CDC82EB8FE1E0063F6B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0487CDC72EB8FE1E0063F6B3 /* Preview Assets.xcassets */; };
-		0487CDD22EB8FE1E0063F6B3 /* MaasAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDD12EB8FE1E0063F6B3 /* MaasAppTests.swift */; };
 		0487CDDC2EB8FE1E0063F6B3 /* MaasAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDDB2EB8FE1E0063F6B3 /* MaasAppUITests.swift */; };
 		0487CDDE2EB8FE1E0063F6B3 /* MaasAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDDD2EB8FE1E0063F6B3 /* MaasAppUITestsLaunchTests.swift */; };
 		0487CDED2EB93CB20063F6B3 /* CardValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDEC2EB93CB20063F6B3 /* CardValidationService.swift */; };
-		0487CDEF2EB93D200063F6B3 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDEE2EB93D200063F6B3 /* Card.swift */; };
 		0487CDF32EB961430063F6B3 /* CardProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDF22EB961430063F6B3 /* CardProfileService.swift */; };
 		0487CDF62EB964F80063F6B3 /* CardStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDF52EB964F80063F6B3 /* CardStorage.swift */; };
 		0487CDF92EB96AB80063F6B3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487CDF82EB96AB80063F6B3 /* HomeView.swift */; };
@@ -38,6 +35,10 @@
 		04957C862EBD246F00625F56 /* CardProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04957C852EBD246F00625F56 /* CardProfileTest.swift */; };
 		04957C882EBD248F00625F56 /* HomeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04957C872EBD248F00625F56 /* HomeTest.swift */; };
 		04957C8A2EBD24A000625F56 /* TransportMapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04957C892EBD24A000625F56 /* TransportMapTest.swift */; };
+		04957C8F2EBD41F600625F56 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04957C8E2EBD41F600625F56 /* Card.swift */; };
+		04957C922EBD421900625F56 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04957C912EBD421900625F56 /* Models.swift */; };
+		04957C952EBD433200625F56 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04957C942EBD433200625F56 /* Endpoints.swift */; };
+		04957C982EBD5A3F00625F56 /* TransportMapServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04957C972EBD5A3F00625F56 /* TransportMapServiceInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,16 +61,13 @@
 /* Begin PBXFileReference section */
 		0487CDBD2EB8FE1C0063F6B3 /* MaasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0487CDC02EB8FE1C0063F6B3 /* MaasAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaasAppApp.swift; sourceTree = "<group>"; };
-		0487CDC22EB8FE1C0063F6B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0487CDC42EB8FE1E0063F6B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0487CDC72EB8FE1E0063F6B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0487CDCD2EB8FE1E0063F6B3 /* MaasAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaasAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0487CDD12EB8FE1E0063F6B3 /* MaasAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaasAppTests.swift; sourceTree = "<group>"; };
 		0487CDD72EB8FE1E0063F6B3 /* MaasAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaasAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0487CDDB2EB8FE1E0063F6B3 /* MaasAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaasAppUITests.swift; sourceTree = "<group>"; };
 		0487CDDD2EB8FE1E0063F6B3 /* MaasAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaasAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0487CDEC2EB93CB20063F6B3 /* CardValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValidationService.swift; sourceTree = "<group>"; };
-		0487CDEE2EB93D200063F6B3 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0487CDF22EB961430063F6B3 /* CardProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProfileService.swift; sourceTree = "<group>"; };
 		0487CDF52EB964F80063F6B3 /* CardStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStorage.swift; sourceTree = "<group>"; };
 		0487CDF82EB96AB80063F6B3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -94,6 +92,10 @@
 		04957C852EBD246F00625F56 /* CardProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProfileTest.swift; sourceTree = "<group>"; };
 		04957C872EBD248F00625F56 /* HomeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTest.swift; sourceTree = "<group>"; };
 		04957C892EBD24A000625F56 /* TransportMapTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportMapTest.swift; sourceTree = "<group>"; };
+		04957C8E2EBD41F600625F56 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		04957C912EBD421900625F56 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		04957C942EBD433200625F56 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		04957C972EBD5A3F00625F56 /* TransportMapServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportMapServiceInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +153,6 @@
 				0487CDEA2EB9393C0063F6B3 /* Home */,
 				0487CE032EBB15D00063F6B3 /* Core */,
 				0487CDC02EB8FE1C0063F6B3 /* MaasAppApp.swift */,
-				0487CDC22EB8FE1C0063F6B3 /* ContentView.swift */,
 				0487CDC42EB8FE1E0063F6B3 /* Assets.xcassets */,
 				0487CDC62EB8FE1E0063F6B3 /* Preview Content */,
 			);
@@ -172,7 +173,6 @@
 				04957C842EBD243100625F56 /* CardProfile */,
 				04957C832EBD242C00625F56 /* Home */,
 				04957C822EBD241D00625F56 /* TransportMap */,
-				0487CDD12EB8FE1E0063F6B3 /* MaasAppTests.swift */,
 			);
 			path = MaasAppTests;
 			sourceTree = "<group>";
@@ -189,6 +189,7 @@
 		0487CDEA2EB9393C0063F6B3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				04957C8D2EBD41E600625F56 /* Model */,
 				0487CE002EBB083B0063F6B3 /* ViewModel */,
 				0487CDF72EB967DC0063F6B3 /* View */,
 				0487CDEB2EB93C5D0063F6B3 /* Service */,
@@ -208,6 +209,7 @@
 		0487CDF02EB9610B0063F6B3 /* CardProfile */ = {
 			isa = PBXGroup;
 			children = (
+				04957C902EBD420D00625F56 /* Model */,
 				0487CE132EBB29E30063F6B3 /* Interface */,
 				0487CE0E2EBB29680063F6B3 /* ViewModel */,
 				0487CDFA2EBAEC6E0063F6B3 /* View */,
@@ -237,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				0487CDF82EB96AB80063F6B3 /* HomeView.swift */,
-				0487CE0C2EBB1A400063F6B3 /* FloatingButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,8 +262,8 @@
 		0487CE032EBB15D00063F6B3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				04957C932EBD432100625F56 /* Resources */,
 				04957C8C2EBD2FA800625F56 /* Storage */,
-				04957C8B2EBD2F0500625F56 /* Models */,
 				0487CE042EBB15D80063F6B3 /* Components */,
 			);
 			path = Core;
@@ -279,6 +280,7 @@
 		0487CE052EBB15EC0063F6B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0487CE0C2EBB1A400063F6B3 /* FloatingButton.swift */,
 				0487CE062EBB15FA0063F6B3 /* CardView.swift */,
 				0487CE082EBB16950063F6B3 /* AlertView.swift */,
 			);
@@ -305,6 +307,7 @@
 		04957C6E2EBC27D000625F56 /* TransportMap */ = {
 			isa = PBXGroup;
 			children = (
+				04957C962EBD5A1F00625F56 /* Interface */,
 				04957C7B2EBC291200625F56 /* View */,
 				04957C782EBC28E300625F56 /* Service */,
 				04957C752EBC28B400625F56 /* ViewModel */,
@@ -379,20 +382,44 @@
 			path = CardProfile;
 			sourceTree = "<group>";
 		};
-		04957C8B2EBD2F0500625F56 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				0487CDEE2EB93D200063F6B3 /* Card.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		04957C8C2EBD2FA800625F56 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				0487CDF52EB964F80063F6B3 /* CardStorage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		04957C8D2EBD41E600625F56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04957C8E2EBD41F600625F56 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04957C902EBD420D00625F56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04957C912EBD421900625F56 /* Models.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04957C932EBD432100625F56 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04957C942EBD433200625F56 /* Endpoints.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		04957C962EBD5A1F00625F56 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				04957C972EBD5A3F00625F56 /* TransportMapServiceInterface.swift */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -525,13 +552,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0487CDC32EB8FE1C0063F6B3 /* ContentView.swift in Sources */,
 				04957C772EBC28D100625F56 /* TransportMapViewModel.swift in Sources */,
 				04957C712EBC282000625F56 /* TransportMapModels.swift in Sources */,
+				04957C982EBD5A3F00625F56 /* TransportMapServiceInterface.swift in Sources */,
 				0487CE122EBB29A50063F6B3 /* HomeViewModelInterface.swift in Sources */,
 				0487CDF92EB96AB80063F6B3 /* HomeView.swift in Sources */,
 				0487CE022EBB08530063F6B3 /* HomeViewModel.swift in Sources */,
 				0487CE102EBB29820063F6B3 /* CardProfileViewModel.swift in Sources */,
+				04957C8F2EBD41F600625F56 /* Card.swift in Sources */,
 				0487CE152EBB2A0C0063F6B3 /* CardProfileViewModelInterface.swift in Sources */,
 				0487CE0D2EBB1A400063F6B3 /* FloatingButton.swift in Sources */,
 				0487CDF62EB964F80063F6B3 /* CardStorage.swift in Sources */,
@@ -540,14 +568,15 @@
 				0487CDED2EB93CB20063F6B3 /* CardValidationService.swift in Sources */,
 				0487CDC12EB8FE1C0063F6B3 /* MaasAppApp.swift in Sources */,
 				0487CDF32EB961430063F6B3 /* CardProfileService.swift in Sources */,
+				04957C952EBD433200625F56 /* Endpoints.swift in Sources */,
 				04957C7A2EBC28F500625F56 /* TransportMapService.swift in Sources */,
 				0487CDFC2EBAEC850063F6B3 /* CardProfileView.swift in Sources */,
 				04957C7F2EBC296500625F56 /* StopsListView.swift in Sources */,
 				0487CE072EBB15FA0063F6B3 /* CardView.swift in Sources */,
 				0487CE0B2EBB175B0063F6B3 /* CardValidationServiceInterface.swift in Sources */,
 				04957C742EBC286E00625F56 /* LocationManager.swift in Sources */,
-				0487CDEF2EB93D200063F6B3 /* Card.swift in Sources */,
 				04957C7D2EBC292E00625F56 /* TransportMapView.swift in Sources */,
+				04957C922EBD421900625F56 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,7 +586,6 @@
 			files = (
 				04957C8A2EBD24A000625F56 /* TransportMapTest.swift in Sources */,
 				04957C882EBD248F00625F56 /* HomeTest.swift in Sources */,
-				0487CDD22EB8FE1E0063F6B3 /* MaasAppTests.swift in Sources */,
 				04957C862EBD246F00625F56 /* CardProfileTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

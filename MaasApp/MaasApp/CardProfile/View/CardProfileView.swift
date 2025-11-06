@@ -22,25 +22,7 @@ struct CardProfileView<ViewModel: CardProfileViewModelInterface>: View {
                     balanceSection
                 }
             }
-
-            // 🔹 Botón de borrar tarjeta
-            Button(action: {
-                showingDeleteAlert = true
-            }) {
-                HStack {
-                    Image(systemName: "trash.fill")
-                    Text("Borrar Tarjeta")
-                        .fontWeight(.semibold)
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.red)
-                .cornerRadius(12)
-                .shadow(color: .red.opacity(0.3), radius: 8, x: 0, y: 4)
-                .padding(.horizontal, 30)
-                .padding(.bottom, 20)
-            }
+            deleteButton
             .alert(isPresented: $showingDeleteAlert) {
                 Alert(
                     title: Text("¿Estás seguro?"),
@@ -101,6 +83,26 @@ struct CardProfileView<ViewModel: CardProfileViewModelInterface>: View {
         }
         .padding(.horizontal, 30)
         .padding(.bottom, 20)
+    }
+    
+    private var deleteButton: some View {
+        Button(action: {
+            showingDeleteAlert = true
+        }) {
+            HStack {
+                Image(systemName: "trash.fill")
+                Text("Borrar Tarjeta")
+                    .fontWeight(.semibold)
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color.red)
+            .cornerRadius(12)
+            .shadow(color: .red.opacity(0.3), radius: 8, x: 0, y: 4)
+            .padding(.horizontal, 30)
+            .padding(.bottom, 20)
+        }
     }
 
     // MARK: - Helpers UI

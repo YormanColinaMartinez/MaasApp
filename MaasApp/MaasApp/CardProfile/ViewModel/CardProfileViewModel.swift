@@ -10,15 +10,15 @@ import SwiftUI
 final class CardProfileViewModel: CardProfileViewModelInterface {
     @Published var cardInfo: CardInfo?
     @Published var cardBalance: CardBalance?
-    var storage: CardStorage
-    var cardNumber: String = ""
+    let storage: CardStorage
+    private var cardNumber: String = ""
     
     var service: CardProfileServiceInterface
     
     init(cardNumber: String, storage: CardStorage, service: CardProfileServiceInterface = CardProfileService()) {
-        self.storage = storage
         self.cardNumber = cardNumber
         self.service = service
+        self.storage = storage
     }
     
     func getInformation() async {

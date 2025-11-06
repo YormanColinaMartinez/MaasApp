@@ -10,7 +10,7 @@ import Foundation
 class CardProfileService: CardProfileServiceInterface {    
     
     func getCardInformation(number: String) async throws -> CardInfo {
-        let url = URL(string: "https://osgqhdx2wf.execute-api.us-west-2.amazonaws.com/card/getInformation/\(number)")!
+        let url = URL(string: "\(Endpoints.cardInformation.rawValue)\(number)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 
@@ -30,7 +30,7 @@ class CardProfileService: CardProfileServiceInterface {
     }
     
     func getCardBalance(number: String) async throws -> CardBalance {
-        let url = URL(string: "https://osgqhdx2wf.execute-api.us-west-2.amazonaws.com/card/getInformation/\(number)")!
+        let url = URL(string: "\(Endpoints.cardInformation.rawValue)\(number)")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 

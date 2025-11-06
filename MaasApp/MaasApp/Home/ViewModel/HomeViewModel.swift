@@ -7,20 +7,30 @@
 
 import SwiftUI
 
-class HomeViewModel: HomeViewModelInterface {
+final class HomeViewModel: HomeViewModelInterface, ObservableObject {
     @Published var selectedCard: Card?
     @Published var cards: [Card] = []
     @Published var showMap: Bool = false
-    private var service: CardValidationServiceInterface
-    var storage: CardStorage
+    @Published var showErrorAlert: Bool = false
+    @Published var errorMessage: String = ""
     
-    init(service: CardValidationServiceInterface) {
+    private var service: CardValidationServiceInterface
+    let storage: CardStorage
+    
+    init(service: CardValidationServiceInterface, storage: CardStorage) {
         self.service = service
-        self.storage = CardStorage()
-        self.cards = storage.getCards()
+        self.storage = storage
+        self.cards = getCards()
     }
     
-    @MainActor
+    func validateAndAddCard(_ cardNumber: String) async {
+        let success = await getValidation(cardNumber: cardNumber)
+        if !success {
+            errorMessage = "No se pudo validar la tarjeta. Verifica el número e intenta de nuevo."
+            showErrorAlert = true
+        }
+    }
+    
     func getValidation(cardNumber: String) async -> Bool {
         do {
             guard let card = try await service.fetchCardValidation(cardNumber: cardNumber) else { return false }
@@ -41,6 +51,6 @@ class HomeViewModel: HomeViewModelInterface {
     }
     
     func getStorage() -> CardStorage {
-        return storage
+        storage
     }
 }

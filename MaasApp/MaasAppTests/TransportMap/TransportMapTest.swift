@@ -11,11 +11,11 @@ import CoreLocation
 
 class OTPServiceTests: XCTestCase {
     
-    var otpService: OTPService!
+    var otpService: TransportMapServiceInterface!
     
     override func setUp() {
         super.setUp()
-        otpService = OTPService()
+        otpService = TransportMapService()
     }
     
     override func tearDown() {

@@ -8,88 +8,87 @@
 import SwiftUI
 import UIKit
 
-struct HomeView<ViewModel: HomeViewModelInterface>: View {
-    
-    @StateObject var viewModel: ViewModel
-    @State private var showMap = false
-    @State private var navigationPath = NavigationPath()
-    @State private var showErrorAlert = false
-    @State private var errorMessage = ""
-    
+struct HomeView: View {
+    @StateObject var viewModel: HomeViewModel
+
     var body: some View {
-        NavigationStack(path: $navigationPath) {
+        NavigationStack {
             VStack(alignment: .leading) {
-                Text("Mis Tarjetas")
-                    .frame(height: 60)
-                    .font(.title.bold().italic())
-                    .padding(.leading, 40)
-                
+                headerView
                 ZStack {
-                    ScrollView(showsIndicators: false) {
-                        VStack(spacing: 40) {
-                            ForEach(viewModel.cards, id: \.self) { card in
-                                CardView(cardNumber: card.card, width: UIScreen.main.bounds.width) {
-                                    viewModel.selectedCard = card
-                                }
-                            }
-                        }
-                        .padding(.vertical, 60)
-                    }
-                    
+                    listView
+
                     Spacer()
                     
-                    HStack(alignment: .bottom, spacing: 16) {
-                        FloatingButton(
-                            iconName: "plus",
-                            backgroundColor: .green,
-                            action: {
-                                showAddCardAlert { newCard in
-                                    if let newCard = newCard, !newCard.isEmpty {
-                                        Task {
-                                            let success = await viewModel.getValidation(cardNumber: newCard)
-                                            if !success {
-                                                errorMessage = "No se pudo validar la tarjeta. Verifica el número e intenta de nuevo."
-                                                showErrorAlert = true
-                                            }
-                                        }
-                                    }
-                                }
-                            }, buttonText: "Agregar Tarjeta"
-                        )
-                        
-                        Spacer()
-                        
-                        FloatingButton(
-                            iconName: "map",
-                            backgroundColor: .blue,
-                            action: {
-                                navigationPath.append("mapView")
-                            }, buttonText: "Mapa"
-                        )
-                    }
-                    .frame(width: UIScreen.main.bounds.width)
-                    .position(CGPoint(x: 150, y: UIScreen.main.bounds.height - 220))
-                    .padding(.trailing, 20)
-                    .padding(.bottom, 20)
-                    
+                    floatingbuttons
                 }
             }
-            .alert("Error", isPresented: $showErrorAlert) {
+            .alert("Error", isPresented: $viewModel.showErrorAlert) {
                 Button("OK", role: .cancel) { }
             } message: {
-                Text(errorMessage)
+                Text(viewModel.errorMessage)
             }
-            .navigationDestination(for: String.self) { destination in
-                if destination == "mapView" {
-                    TransportMapView()
-                }
+            .sheet(isPresented: $viewModel.showMap) {
+                TransportMapView()
             }
             .sheet(item: $viewModel.selectedCard) { card in
-                let profileVM = CardProfileViewModel(cardNumber: card.card, storage: viewModel.getStorage())
+                let profileVM = CardProfileViewModel(cardNumber: card.card, storage: viewModel.storage)
                 CardProfileView(viewModel: profileVM) {
                     viewModel.cards = viewModel.getStorage().getCards()
                 }
             }
         }
+    }
+    
+    private var headerView: some View {
+        Text("Mis Tarjetas")
+            .frame(height: 60)
+            .font(.title.bold().italic())
+            .padding(.leading, 40)
+    }
+    
+    private var listView: some View {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 40) {
+                ForEach(viewModel.cards, id: \.self) { card in
+                    CardView(cardNumber: card.card, width: UIScreen.main.bounds.width) {
+                        viewModel.selectedCard = card
+                    }
+                }
+            }
+            .padding(.vertical, 60)
+        }
+    }
+    
+    private var floatingbuttons: some View {
+        HStack(alignment: .bottom, spacing: 16) {
+            FloatingButton(
+                iconName: "plus",
+                backgroundColor: .green,
+                action: {
+                    AlertController.showAddCardAlert { newCard in
+                        if let newCard = newCard, !newCard.isEmpty {
+                            Task {
+                                await viewModel.validateAndAddCard(newCard)
+                            }
+                        }
+                    }
+                }, buttonText: "Agregar Tarjeta"
+            )
+
+            Spacer()
+
+            FloatingButton(
+                iconName: "map",
+                backgroundColor: .blue,
+                action: {
+                    viewModel.showMap = true
+                }, buttonText: "Mapa"
+            )
+        }
+        .frame(width: UIScreen.main.bounds.width)
+        .position(CGPoint(x: 150, y: UIScreen.main.bounds.height - 220))
+        .padding(.trailing, 20)
+        .padding(.bottom, 20)
     }
 }

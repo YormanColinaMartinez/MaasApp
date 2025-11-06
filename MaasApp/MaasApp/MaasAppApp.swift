@@ -13,7 +13,8 @@ struct MaasAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: HomeViewModel(service: CardValidationService()))
+            HomeView(viewModel: HomeViewModel(service: CardValidationService(), storage: storage))
+                .environmentObject(storage)
         }
     }
 }

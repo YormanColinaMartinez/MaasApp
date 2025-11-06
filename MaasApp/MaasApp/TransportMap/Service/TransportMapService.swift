@@ -8,12 +8,11 @@
 import Foundation
 import CoreLocation
 
-class OTPService {
-    static let shared = OTPService()
-    private let baseURL = "https://sisuotp.tullaveplus.gov.co/otp/routers/default"
+class TransportMapService: TransportMapServiceInterface {
+    static let shared = TransportMapService()
     
     func getNearbyStopsAsync(location: CLLocationCoordinate2D, radius: Int = 1000) async throws -> [NearbyStop] {
-        let urlString = "\(baseURL)/index/stops"
+        let urlString = "\(Endpoints.transportMap.rawValue)/index/stops"
         
         guard var urlComponents = URLComponents(string: urlString) else {
             throw NSError(domain: "Invalid URL", code: 400)
